@@ -1,21 +1,21 @@
 # Digital Wallet & Payment Processing System
 
-A backend FinTech simulation system that models core digital wallet operations, payment processing, fraud detection, rewards management, and system analytics.
-
-The project is designed to demonstrate real-world backend system design using a modular, service-based architecture.
+A backend FinTech simulation system that demonstrates core digital wallet operations, secure transactions, fraud detection logic, rewards processing, and system analytics using a modular service-based architecture.
 
 ---
 
 ## Overview
 
-This system simulates a simplified financial platform with the following capabilities:
+This project simulates a simplified financial system where users can:
 
-- User authentication and account management
-- Wallet creation and balance handling
-- Secure payment processing between users
-- Rule-based fraud detection
-- Rewards system based on user activity
-- Admin-level analytics and monitoring
+- Register and authenticate securely
+- Manage digital wallets
+- Send and receive payments
+- Track transaction history
+- Earn reward points
+- View system analytics through admin dashboard
+
+The goal is to demonstrate backend system design, API development, and financial workflow implementation.
 
 ---
 
@@ -23,32 +23,31 @@ This system simulates a simplified financial platform with the following capabil
 
 The system follows a layered backend architecture:
 
-Client → API Layer → Service Layer → Database → Response
+```
+Client (Frontend - optional)
+        ↓
+API Layer (FastAPI)
+        ↓
+Service Layer (Business Logic)
+        ↓
+Database Layer (PostgreSQL)
+```
 
 ### API Layer
-Handles incoming HTTP requests using FastAPI:
-- Authentication routes
-- Wallet routes
-- Transaction routes
-- Rewards routes
-- Admin routes
-
----
+Handles:
+- Routing
+- Input validation
+- Authentication (JWT)
 
 ### Service Layer
-Contains all business logic:
-
-- Authentication service
-- Wallet management service
-- Payment processing engine
-- Fraud detection rules engine
-- Rewards calculation engine
-
----
+Handles business logic:
+- Wallet operations
+- Payment processing
+- Fraud detection rules
+- Rewards calculation
 
 ### Database Layer
-PostgreSQL-based storage system for:
-
+Stores:
 - Users
 - Wallets
 - Transactions
@@ -56,72 +55,65 @@ PostgreSQL-based storage system for:
 
 ---
 
-### Analytics Layer
-Provides system insights:
+## Core Modules
 
-- Transaction metrics
-- User activity tracking
-- Admin dashboard statistics
+### Authentication Module
+- User registration
+- Login system
+- JWT authentication
 
----
-
-## Core Features
-
-### Authentication System
-- User registration and login
-- JWT-based authentication
-
-### Wallet System
+### Wallet Module
 - Wallet creation
-- Deposit functionality
+- Deposit funds
 - Balance tracking
 
-### Transaction System
-- Peer-to-peer payments
+### Transaction Module
+- Peer-to-peer transfers
 - Transaction history logging
-- Balance validation
 
-### Fraud Detection
+### Fraud Detection Module
 - Rule-based fraud detection
 - Transaction threshold monitoring
-- Suspicious activity flagging
 
-### Rewards System
-- Points calculation based on transactions
-- User engagement tracking
+### Rewards Module
+- Points calculation based on activity
 
-### Admin Dashboard
-- System-wide statistics
-- User and transaction monitoring
+### Analytics Module
+- Transaction statistics
+- System usage metrics
+- Admin dashboard data
 
 ---
 
 ## API Endpoints
 
-Base URL:
+**Base URL**
+```
 http://localhost:8000
+```
 
 ### Authentication
-- POST /auth/register
-- POST /auth/login
+- POST `/auth/register`
+- POST `/auth/login`
 
 ### Wallet
-- POST /wallet/deposit
-- GET /wallet/{user_id}
+- POST `/wallet/deposit`
+- GET `/wallet/{user_id}`
 
 ### Transactions
-- POST /transactions/send
+- POST `/transactions/send`
 
 ### Rewards
-- GET /rewards/{user_id}
+- GET `/rewards/{user_id}`
 
 ### Admin
-- GET /admin/dashboard
+- GET `/admin/dashboard`
 
 ---
 
 ## Project Structure
 
+```
 backend/
 ├── api/
 ├── services/
@@ -136,16 +128,27 @@ tests/
 
 docs.md
 requirements.md
+```
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 - Python
 - FastAPI
 - PostgreSQL
 - REST API architecture
 - Modular backend design
+
+---
+
+## Key Features
+
+- Secure authentication system (JWT)
+- Wallet-based transaction system
+- Rule-based fraud detection
+- Rewards and analytics system
+- Modular service-based architecture
 
 ---
 
@@ -156,13 +159,13 @@ requirements.md
 - Real-time transaction processing
 - Event-driven architecture
 - Docker containerization
-- Scalable microservice migration
+- Cloud deployment (AWS / Azure)
 
 ---
 
 ## Note
 
-This project is a FinTech simulation built for learning and portfolio purposes. It does not represent a production-level financial system.
+This project is a FinTech simulation built for learning and portfolio purposes. It does not process real financial transactions.
 
 ---
 
